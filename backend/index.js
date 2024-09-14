@@ -2,6 +2,7 @@ import express from 'express';
 import { PORT, mongoDBURL } from './config.js';
 import mongoose from 'mongoose';
 import booksRoute from './routes/books.js';
+import usersRoute from './routes/user.js';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 
 
@@ -31,6 +32,7 @@ app.get('/', (request, response) => {
 });
 
 app.use('/lib', booksRoute);
+app.use('/users', usersRoute);
 
 mongoose
   .connect(mongoDBURL)

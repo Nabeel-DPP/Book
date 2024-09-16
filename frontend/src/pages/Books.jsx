@@ -1,11 +1,26 @@
 // src/components/BooksTable.js
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import Profile from './Profile';
+import Modal from 'react-modal'; // Ensure to install react-modal
 
 const Books = () => {
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
+  const handleProfileClick = () => {
+    setModalIsOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setModalIsOpen(false);
+  };
+
+
+
+
 
   useEffect(() => {
     // Fetch data from the API
@@ -25,6 +40,7 @@ const Books = () => {
 
   return (
     <div className="container mt-5">
+       <button onClick={handleProfileClick}>View Profile</button>
     <h2 className="mb-4">Books List</h2>
    
 
@@ -63,6 +79,16 @@ const Books = () => {
         ))}
       </tbody>
     </table>
+
+
+    <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={handleCloseModal}
+        contentLabel="User Profile"
+      >
+        <button onClick={handleCloseModal}>Close</button>
+        <Profile user={user} />
+      </Modal>
 
 
 

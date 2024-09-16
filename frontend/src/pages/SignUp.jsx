@@ -18,7 +18,13 @@ const SignUp = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:5555/users', formData);
+      const response = await axios.post('http://localhost:5555/users/', formData);
+      setFormData({
+        name: '',
+        email: '',
+        password: '',
+        membershipType: 'basic'
+      });
       console.log('User registered:', response.data);
       // Handle success (e.g., redirect to login page)
     } catch (error) {

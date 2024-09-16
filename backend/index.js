@@ -3,6 +3,7 @@ import { PORT, mongoDBURL } from './config.js';
 import mongoose from 'mongoose';
 import booksRoute from './routes/books.js';
 import usersRoute from './routes/user.js';
+import loginRoute from './routes/login.js';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 
 
@@ -33,6 +34,8 @@ app.get('/', (request, response) => {
 
 app.use('/lib', booksRoute);
 app.use('/users', usersRoute);
+app.use('/login', loginRoute);
+
 
 mongoose
   .connect(mongoDBURL)

@@ -9,6 +9,7 @@ const Books = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [modalIsOpen, setModalIsOpen] = useState(false);
+  
 
   const handleProfileClick = () => {
     setModalIsOpen(true);
@@ -34,6 +35,8 @@ const Books = () => {
         setLoading(false);
       });
   }, []);
+
+  const user = JSON.parse(localStorage.getItem('user'));
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;

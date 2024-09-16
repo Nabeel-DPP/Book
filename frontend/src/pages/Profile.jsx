@@ -8,6 +8,7 @@ const Profile = ({ user }) => {
   return (
     <div>
       <h2>Profile</h2>
+      <p><strong>User ID:</strong> {user.userId}</p>
       <p><strong>Name:</strong> {user.name}</p>
       <p><strong>Email:</strong> {user.email}</p>
       <p><strong>Membership Type:</strong> {user.membershipType}</p>
